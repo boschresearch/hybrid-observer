@@ -1,0 +1,7 @@
+dependencies:
+  - matplotlib
+  - numpy
+  - pydantic
+  - pytorch>=1.8
+  - scipy
+  - torchaudio

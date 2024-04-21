@@ -1,0 +1,87 @@
+{
+  "training_config": {
+    "model_config": {
+      "TimeDependentTSModelConfig": "",
+      "learning_config": {
+        "RolloutConfig": "",
+        "RNN_config": {
+          "RNNConfig": "",
+          "input_dim": 1,
+          "output_dim": 1,
+          "device": "cpu",
+          "GRUConfig": "",
+          "hidden_dim": 64
+        },
+        "recognition_steps": 10,
+        "time_dependence": false,
+        "data_as_input": true
+      },
+      "device": "cpu",
+      "simulator_as_input": false,
+      "time_dependence": true
+    },
+    "loss_config": {
+      "loss_type": "RMSE",
+      "loss_structure": {
+        "StandardLossConfig": ""
+      }
+    },
+    "opt": {
+      "AdamConfig": "",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.0
+    },
+    "training_steps": 801,
+    "save_epoch": 50,
+    "callbacks": [
+      {
+        "PlotDataAndSimConfig": "",
+        "callback_epoch": 800,
+        "show_plot": true
+      },
+      {
+        "SaveModelConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "SaveRolloutsConfig": "",
+        "callback_epoch": 800
+      },
+      {
+        "ComputeLossesConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "PlotLossesConfig": "",
+        "callback_epoch": 50,
+        "show_plot": true
+      }
+    ],
+    "folder_manager": {
+      "FolderManagerConfig": "",
+      "plots_folder": true,
+      "model_folder": true,
+      "computations_folder": true
+    },
+    "device": "cpu"
+  },
+  "data_config": {
+    "train_test_config": {
+      "training_split": 600,
+      "validation_ind": 0,
+      "n_dimensional": false
+    },
+    "data_loader_config": {
+      "batchsize": 50,
+      "isshuffle": true,
+      "length": 200,
+      "device": "cpu"
+    },
+    "data_type": "load_data_with_sim_and_time"
+  },
+  "folder_enum": 2
+}

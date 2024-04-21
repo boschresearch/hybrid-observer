@@ -1,0 +1,111 @@
+{
+  "training_config": {
+    "TrainingConfig": "",
+    "model_config": {
+      "TimeDependentTSModelConfig": "",
+      "observer_config": {
+        "ObserverConfig": "",
+        "simulator_dim": 1,
+        "observation_dim": 1,
+        "latent_space_dim": 32,
+        "mlp_hidden_dim": 100,
+        "device": "cpu",
+        "KKLConfig": ""
+      },
+      "learning_config": {
+        "RolloutConfig": "",
+        "RNN_config": {
+          "RNNConfig": "",
+          "input_dim": 1,
+          "output_dim": 1,
+          "device": "cpu",
+          "GRUConfig": "",
+          "hidden_dim": 32
+        },
+        "recognition_steps": 10,
+        "time_dependence": false,
+        "data_as_input": true
+      },
+      "trainable_simulator_config": {
+        "TrainableSimulatorConfig": "",
+        "TrainableSineSimulatorConfig": "",
+        "amplitude": 1.0,
+        "frequency": 0.1,
+        "frequency_shift": 0.0
+      },
+      "device": "cpu",
+      "simulator_as_input": false,
+      "time_dependence": true
+    },
+    "loss_config": {
+      "loss_type": "RMSE",
+      "loss_structure": {
+        "SimAndDataRegularizedConfig": "",
+        "sim_weight": 1.0,
+        "reg_weight": 0.1
+      }
+    },
+    "opt": {
+      "AdamConfig": "",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.0
+    },
+    "scheduler": null,
+    "training_steps": 501,
+    "save_epoch": 50,
+    "callbacks": [
+      {
+        "PlotDataAndSimConfig": "",
+        "callback_epoch": 500,
+        "show_plot": true
+      },
+      {
+        "SaveModelConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "SaveRolloutsConfig": "",
+        "callback_epoch": 500
+      },
+      {
+        "ComputeLossesConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "PlotLossesConfig": "",
+        "callback_epoch": 50,
+        "show_plot": true
+      }
+    ],
+    "folder_manager": {
+      "FolderManagerConfig": "",
+      "plots_folder": true,
+      "model_folder": true,
+      "computations_folder": true
+    },
+    "device": "cpu"
+  },
+  "data_config": {
+    "device": "cpu",
+    "train_test_config": {
+      "training_split": 600,
+      "validation_ind": 0,
+      "remove_n_train_data": null,
+      "remove_n_eval_data": null,
+      "n_dimensional": false,
+      "preprocessor": null
+    },
+    "data_loader_config": {
+      "batchsize": 50,
+      "isshuffle": true,
+      "length": 200,
+      "device": "cpu"
+    },
+    "data_type": "load_data_with_sim_and_time"
+  },
+  "folder_enum": 2
+}

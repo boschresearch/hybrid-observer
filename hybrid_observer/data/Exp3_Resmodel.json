@@ -1,0 +1,92 @@
+{
+  "training_config": {
+    "model_config": {
+      "TimeDependentTSModelConfig": "",
+      "observer_config": {
+        "ObserverConfig": "",
+        "simulator_dim": 1,
+        "observation_dim": 1,
+        "latent_space_dim": 4,
+        "device": "cpu",
+        "BasicSimulatorConfig": ""
+      },
+      "learning_config": {
+        "RolloutConfig": "",
+        "RNN_config": {
+          "RNNConfig": "",
+          "input_dim": 1,
+          "output_dim": 1,
+          "device": "cpu",
+          "GRUConfig": "",
+          "hidden_dim": 96
+        },
+        "recognition_steps": 50,
+        "time_dependence": false
+      },
+      "device": "cpu",
+      "simulator_as_input": false,
+      "time_dependence": true
+    },
+    "loss_config": {
+      "loss_type": "RMSE",
+      "loss_structure": {
+        "StandardLossConfig": ""
+      }
+    },
+    "opt": {
+      "AdamConfig": "",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.0
+    },
+    "training_steps": 351,
+    "save_epoch": 50,
+    "callbacks": [
+      {
+        "PlotDataConfig": "",
+        "callback_epoch": 350,
+        "show_plot": true
+      },
+      {
+        "SaveModelConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "SaveRolloutsConfig": "",
+        "callback_epoch": 350
+      },
+      {
+        "ComputeLossesConfig": "",
+        "callback_epoch": 50
+      },
+      {
+        "PlotLossesConfig": "",
+        "callback_epoch": 50,
+        "show_plot": true
+      }
+    ],
+    "folder_manager": {
+      "FolderManagerConfig": "",
+      "plots_folder": true,
+      "model_folder": true,
+      "computations_folder": true
+    },
+    "device": "cpu"
+  },
+  "data_config": {
+    "train_test_config": {
+      "training_split": 2000,
+      "validation_ind": 0
+    },
+    "data_loader_config": {
+      "batchsize": 50,
+      "isshuffle": true,
+      "length": 500,
+      "device": "cpu"
+    }
+  },
+  "folder_enum": 2
+}
